@@ -27,3 +27,22 @@ data.then((v) => {
 });
 console.log(data);
 console.log(32);
+
+
+
+//=====================================//
+console.log("hello world");
+console.log("what are you doing");
+
+
+
+function greet (){
+    console.log( "hello");
+    
+}
+setTimeout(greet , 3000)
+
+
+console.log("hello zain");
+console.log("my name is shahzain");
+
