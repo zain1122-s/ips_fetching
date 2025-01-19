@@ -1,48 +1,98 @@
-let weatherapi = fetch("https://goweather.herokuapp.com/weather/ny")
-  .then((weather1) => {
-    console.log(weather1.status);
-    console.log(weather1.ok);
-    return weather1.json();
-  })
-  .then((weather2) => {
-    console.log(weather2);
-  });
+function greeting (){
+    console.log("hello");
+    
+};
 
-//=================================================//
+setTimeout( greeting, 4000 )
 
- async function getdata() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(455);
-    }, 3500);
-  });
-}
 
-let data = getdata();
+setTimeout ( () => {
+console.log("hello");
 
-data.then((v) => {
-  console.log(v);
-  //console.log("process data");
-  //console.log("task 2")
-});
-console.log(data);
-console.log(32);
+},3000 )
 
 
 
-//=====================================//
-console.log("hello world");
-console.log("what are you doing");
+
+//callback
 
 
 
-function greet (){
-    console.log( "hello");
+function sum(a,b){
+    console.log(a+b);
     
 }
-setTimeout(greet , 3000)
+function calculation (a,b, sumcallback) {
+sumcallback(a,b)
+}
+calculation(2, 4 , (a,b)=>{
+    console.log(a+b);
+    
+})
+
+//============
+
+const hello= () =>{
+console.log("world");
+
+}
+setTimeout(hello, 6000)
 
 
-console.log("hello zain");
-console.log("my name is shahzain");
+//nesting============================
 
+
+
+let age =90 
+if(age>=18){
+if(age>=60){
+    console.log("senior")
+}else{
+    console.log("junior");
+    
+}
+}else{
+    console.log("child");
+    
+}
+
+
+
+
+//callback hell=================
+
+
+function getdata(dataid,  getnextdata) {
+     setTimeout(()=>{
+        console.log("data", dataid);
+        if (getnextdata) {
+            getnextdata();
+        }
+        } ,2000); 
+        }
+        getdata(1, ()=>{
+            getdata(2, ()=>{
+                getdata(3)
+            })
+        })
+        
+
+
+
+
+
+        function getid(id, getid) {
+            setTimeout(()=>{
+                console.log("ids", id);
+                if(getid){
+                    getid();
+                }
+            } ,3000)
+        }
+        getid(1, ()=>{
+            getid(2, ()=>{
+                getid(3, ()=>{
+                    getid(4)
+                })
+            })
+        })
